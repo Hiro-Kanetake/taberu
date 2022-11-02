@@ -40,7 +40,7 @@ const OwnerMatchFamily: React.FC<Props> = ({ accountId }) => {
       .then((res) => {
         if (res.status === 200) {
           alert("You are successfully logged in!");
-          navigate("/OwnerLoginMain");
+          navigate("/user/main");
         }
       })
       .catch((error) => {

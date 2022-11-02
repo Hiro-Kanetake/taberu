@@ -14,9 +14,9 @@ function OwnerLoginMain() {
           <h2>Welcome to Taberu!!</h2>
         </div>
         <nav className="navi_owLoginMain">
-          <ButtonChild link={"/OwnerFamily"} text={"Family"} />
+          <ButtonChild link={"/user/family"} text={"Family"} />
           <ButtonChild link={"/AllRecipe"} text={"All Recipes"} />
-          <ButtonChild link={"/OwnerRecipe"} text={"My Recipe Reviews"} />
+          <ButtonChild link={"/user/recipe"} text={"My Recipe Reviews"} />
         </nav>
       </main>
     </div>

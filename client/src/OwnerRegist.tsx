@@ -38,7 +38,7 @@ const OwnerRegist: React.FC = () => {
       const responseCode = res.status;
       if (responseCode === 201) {
         alert("Account created. Welcome to taberu!");
-        navigate("/OwnerLogin");
+        navigate("/login");
       }
     });
   };
