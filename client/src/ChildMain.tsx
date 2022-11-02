@@ -6,8 +6,7 @@ import dislike from "./assets/dislike.png";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-const DB_URL = "https://taberu-server.herokuapp.com";
-// const DB_URL = "http://localhost:8080";
+const DB_URL = process.env.REACT_APP_PUBLIC_URL || "http://localhost:8080";
 
 const ChildMain: React.FC = () => {
   const navigate = useNavigate();

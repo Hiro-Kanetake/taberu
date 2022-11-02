@@ -5,8 +5,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import logo from "./assets/logo.png";
 
-const DB_URL = "https://taberu-server.herokuapp.com";
-// const DB_URL = "http://localhost:8080";
+const DB_URL = process.env.REACT_APP_PUBLIC_URL || "http://localhost:8080";
 
 interface test {
   email: string;
@@ -37,9 +36,6 @@ const OwnerLogin: React.FC<Props> = ({ setAccountId }) => {
     axios
       .get(`${DB_URL}/account`, accountInfo)
       .then((res) => {
-        // If we enter this block - these WAS a match in the database
-        // So the response we're getting has user's id in it
-        // And this is how we access it
         const id = res.data.id;
 
         localStorage.setItem("account_id", id);

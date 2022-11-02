@@ -3,7 +3,7 @@ import { Routes, Route, BrowserRouter } from "react-router-dom";
 import ChildMain from "./ChildMain";
 import ChildMenu from "./ChildMenu";
 import ChildDone from "./ChildDone";
-import OwnerTop from "./OwnerTop";
+import Top from "./Top";
 import OwnerRegist from "./OwnerRegist";
 import OwnerLogin from "./OwnerLogin";
 import OwnerMatchFamily from "./OwnerMatchFamily";
@@ -24,71 +24,41 @@ function App() {
     <div className="AppChild">
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<OwnerTop />} />
-          <Route path="/OwnerRegist" element={<OwnerRegist />} />
-          <Route
-            path="/OwnerLogin"
-            element={<OwnerLogin setAccountId={setAccountId} />}
-          />
-          <Route
-            path="/OwnerLoginMain"
-            element={
+          <Route path="/" element={<Top />} />
+          <Route path="/register" element={<OwnerRegist />} />
+          <Route path="/login" element={<OwnerLogin setAccountId={setAccountId} />} />
+          <Route path="/user/main" element={
               <>
                 <Header />
                 <OwnerLoginMain />
               </>
-            }
-          />
-          <Route
-            path="/OwnerPost"
-            element={
+            } />
+          <Route path="/OwnerPost" element={
               <>
                 <Header />
                 <OwnerPost />
               </>
-            }
-          />
-          <Route
-            path="/OwnerFamily"
-            element={
+            } />
+          <Route path="/OwnerFamily" element={
               <>
                 <Header />
                 <OwnerFamily account_id={accountId} />
               </>
-            }
-          />
-          <Route
-            path="/OwnerRecipe"
-            element={
+            } />
+          <Route path="/OwnerRecipe" element={
               <>
                 <Header />
                 <OwnerRecipe />
               </>
-            }
-          />
-           <Route
-            path="/AllRecipe"
-            element={
+            } />
+           <Route path="/AllRecipe" element={
               <>
                 <Header />
                 <AllRecipe />
               </>
-            }
-          />
-          <Route
-            path="/OwnerMatchFamily"
-            element={
-              <>
-                <OwnerMatchFamily accountId={accountId} />
-              </>
-            }
-          />
-          <Route path="/ChildMenu" 
-          element={
-            <>
-            <ChildMenu account_id={accountId} />
-            </>
             } />
+          <Route path="/OwnerMatchFamily" element={<OwnerMatchFamily accountId={accountId} />} />
+          <Route path="/ChildMenu" element={<ChildMenu account_id={accountId} />} />
           <Route path="/ChildMain" element={<ChildMain />} />
           <Route path="/ChildDone" element={<ChildDone />} />
         </Routes>

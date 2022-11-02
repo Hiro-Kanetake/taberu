@@ -5,8 +5,7 @@ import "./App.css";
 import { useNavigate } from "react-router-dom";
 import logo from "./assets/logo.png";
 
-const DB_URL = "https://taberu-server.herokuapp.com";
-// const DB_URL = "http://localhost:8080";
+const DB_URL = process.env.REACT_APP_PUBLIC_URL || "http://localhost:8080";
 
 type Props = {
   account_id: number | undefined;

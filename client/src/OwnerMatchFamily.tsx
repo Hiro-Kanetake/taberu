@@ -6,8 +6,7 @@ import { useNavigate } from "react-router-dom";
 import ButtonChild from "./components/Button";
 import logo from "./assets/logo.png";
 
-const DB_URL = "https://taberu-server.herokuapp.com";
-// const DB_URL = "http://localhost:8080";
+const DB_URL = process.env.REACT_APP_PUBLIC_URL || "http://localhost:8080";
 
 interface test {
   pincode: number;
@@ -29,15 +28,10 @@ const OwnerMatchFamily: React.FC<Props> = ({ accountId }) => {
     },
   });
   const onSubmit = (data: any) => {
-    // For our pincode check we need pincode AND id
-    // Here we somehow need to get hold of id we got logging in and add it to this object
-    //    that we will be sending to server
     data.id = accountId
       ? accountId
-      : Number(localStorage.getItem("account_id")); // PLACEHOLDER ID
+      : Number(localStorage.getItem("account_id"));
     data.pincode = Number(data.pincode);
-    // console.log(data);
-    // return data;
     const accountInfo = {
       params: data,
     };
@@ -50,10 +44,7 @@ const OwnerMatchFamily: React.FC<Props> = ({ accountId }) => {
         }
       })
       .catch((error) => {
-        // If we enter this block - there was no match in the database
-        // So the user should try again
         alert("Pincode is wrong, please try again");
-        console.log("🏮🏮🏮🏮🏮🏮");
         console.log(error.response.data);
       });
   };
@@ -64,7 +55,6 @@ const OwnerMatchFamily: React.FC<Props> = ({ accountId }) => {
         <img src={logo} alt="taberu" />
       </h1>
       <main>
-        {/* <h1 className="logo">Login</h1> */}
         <ButtonChild link={"/ChildMenu"} text={"Start as Family"} />
         <div className="formArea_owMatchFamily">
           <form onSubmit={handleSubmit(onSubmit)}>
@@ -80,10 +70,6 @@ const OwnerMatchFamily: React.FC<Props> = ({ accountId }) => {
             <button type="submit">Submit</button>
           </form>
         </div>
-        <ul>
-          <li>{/* <a href="#">Mizuki</a> */}</li>
-          <li>{/* <a href="#">Makoto</a> */}</li>
-        </ul>
       </main>
     </div>
   );
