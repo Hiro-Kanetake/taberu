@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useForm } from "react-hook-form";
+import Header from "./components/Header";
 import "./App.css";
 import "./components/form.css";
 import dummy from "./assets/dummy.png";
@@ -64,8 +65,11 @@ const OwnerRecipe: React.FC = () => {
   }, [reviewRecipeId]);
 
   return (
-    <div className="OwnerRecipe">
-      <main>
+    <div>
+      <header>
+        <Header />
+      </header>
+      <main className="OwnerRecipe">
         <img src={dummy} alt="" />
         <div className="formArea_owRecipe">
           <form onSubmit={handleSubmit(onSubmit)}>

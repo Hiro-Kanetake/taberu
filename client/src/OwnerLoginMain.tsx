@@ -1,11 +1,15 @@
 import React from "react";
+import Header from "./components/Header";
 import ButtonChild from "./components/Button";
 import "./App.css";
 
 function OwnerLoginMain() {
   return (
-    <div className="OwnerLoginMain">
-      <main>
+    <div>
+      <header>
+        <Header />
+      </header>
+      <main className="OwnerLoginMain">
         <div className="text_owLoginMain">
           <h2>Welcome to Taberu!!</h2>
         </div>
