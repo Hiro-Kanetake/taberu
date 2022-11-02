@@ -1,8 +1,8 @@
 import React from "react";
 import ButtonChild from "./components/Button";
 import "./App.css";
-import bg_top from "./images/bg_top.png";
-import logo from "./images/logo.png";
+import bg_top from "./assets/bg_top.png";
+import logo from "./assets/logo.png";
 
 function OwnerLogin() {
   return (

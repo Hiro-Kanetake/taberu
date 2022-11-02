@@ -89,7 +89,7 @@
     display: inline-block;
     width: 90px;
     height: 90px;
-    background-image: url(../images/icon1_owLoginMain.png);
+    background-image: url(../assets/icon1_owLoginMain.png);
     background-size: contain;
     vertical-align: middle;
     background-repeat: no-repeat;
@@ -103,7 +103,7 @@
       display: inline-block;
       width: 90px;
       height: 90px;
-      background-image: url(../images/icon2_owLoginMain.png);
+      background-image: url(../assets/icon2_owLoginMain.png);
       background-size: contain;
       vertical-align: middle;
       background-repeat: no-repeat;
@@ -117,7 +117,7 @@
   display: inline-block;
   width: 90px;
   height: 90px;
-  background-image: url(../images/icon3_owLoginMain.png);
+  background-image: url(../assets/icon3_owLoginMain.png);
   background-size: contain;
   vertical-align: middle;
   background-repeat: no-repeat;

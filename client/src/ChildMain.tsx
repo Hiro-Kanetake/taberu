@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./components/images.css";
-import dummy from "./images/dummy.png";
-import like from "./images/like.png";
-import dislike from "./images/dislike.png";
+import dummy from "./assets/dummy.png";
+import like from "./assets/like.png";
+import dislike from "./assets/dislike.png";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
