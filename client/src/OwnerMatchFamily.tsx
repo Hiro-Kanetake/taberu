@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import ButtonChild from "./components/Button";
-import logo from "./images/logo.png";
+import logo from "./assets/logo.png";
 
 const DB_URL = "https://taberu-server.herokuapp.com";
 // const DB_URL = "http://localhost:8080";

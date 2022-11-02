@@ -23,7 +23,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="./client/src/images/dummy.png" alt="Logo" width="" height="">
+    <img src="./client/src/assets/taberu-app-sample.png" alt="Logo" width="" height="">
   </a>
 
   <h3 align="center">taberü</h3>

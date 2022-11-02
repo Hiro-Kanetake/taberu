@@ -1,7 +1,7 @@
 import React from "react";
 import ButtonChild from "./components/Button";
 import "./components/images.css";
-import logo from "./images/logo.png";
+import logo from "./assets/logo.png";
 
 const ChildDone: React.FC = () => {
   return (

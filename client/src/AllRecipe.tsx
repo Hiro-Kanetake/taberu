@@ -3,7 +3,7 @@ import axios from "axios";
 import { useForm } from "react-hook-form";
 import "./App.css";
 import "./components/form.css";
-import dummy from "./images/dummy.png";
+import dummy from "./assets/dummy.png";
 
 const DB_URL = "https://taberu-server.herokuapp.com";
 // const DB_URL = "http://localhost:8080";
