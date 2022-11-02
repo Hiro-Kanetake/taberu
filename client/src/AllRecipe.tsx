@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useForm } from "react-hook-form";
+import Header from "./components/Header";
 import "./App.css";
 import "./components/form.css";
 import dummy from "./assets/dummy.png";
 
-const DB_URL = "https://taberu-server.herokuapp.com";
-// const DB_URL = "http://localhost:8080";
+const DB_URL = process.env.REACT_APP_PUBLIC_URL || "http://localhost:8080";
 
 interface addRecipe {
   name: string;
@@ -65,8 +65,11 @@ const OwnerRecipe: React.FC = () => {
   }, [reviewRecipeId]);
 
   return (
-    <div className="OwnerRecipe">
-      <main>
+    <div>
+      <header>
+        <Header />
+      </header>
+      <main className="OwnerRecipe">
         <img src={dummy} alt="" />
         <div className="formArea_owRecipe">
           <form onSubmit={handleSubmit(onSubmit)}>
@@ -93,7 +96,6 @@ const OwnerRecipe: React.FC = () => {
                 <p>{recipe.name}</p>
                 <label>
                   {" "}
-                  {/* 🍴 Review Request */}
                   <button
                     type="submit"
                     value={recipe.id}

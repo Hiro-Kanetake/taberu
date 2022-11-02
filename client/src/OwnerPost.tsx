@@ -1,11 +1,15 @@
 import React from 'react';
+import Header from "./components/Header";
 import './App.css';
 
 function OwnerPost() {
   return (
-    <div className="OwnerPost">
-      <h1>taberu</h1>
-      <main>
+    <div>
+      <header>
+        <Header />
+        <h1>taberu</h1>
+      </header>
+      <main className="OwnerPost">
         <h1 className='logo'>Register</h1>
         <form action="/">
           <label htmlFor="recipeName">Recipe Name *</label>
@@ -13,7 +17,7 @@ function OwnerPost() {
           <input type="file" name="photo" id="" />
         </form>
         <ul>
-          <li><a href="/ownerLoginMain">&gt; Top</a></li>
+          <li><a href="/user/main">&gt; Top</a></li>
           <li><a href="#">&gt; Register</a></li>
         </ul>
       </main>

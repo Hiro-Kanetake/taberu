@@ -16,8 +16,8 @@ function OwnerLogin() {
         </p>
       </main>
       <div className="btuArea_top">
-        <ButtonChild link={"/OwnerLogin"} text={"Login"} />
-        <ButtonChild link={"/OwnerRegist"} text={"Register"} />
+        <ButtonChild link={"/login"} text={"Login"} />
+        <ButtonChild link={"/register"} text={"Register"} />
       </div>
     </div>
   );

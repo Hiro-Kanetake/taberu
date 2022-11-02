@@ -5,9 +5,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import logo from "./assets/logo.png";
 
-//TODO setup the DB_URL to switch automatically depending on the environment
-// const DB_URL = "https://taberu-server.herokuapp.com";
-const DB_URL = "http://localhost:8080";
+const DB_URL = process.env.REACT_APP_PUBLIC_URL || "http://localhost:8080";
 
 interface test {
   last_name: string;
@@ -33,26 +31,14 @@ const OwnerRegist: React.FC = () => {
     },
   });
   const onSubmit = (data: any) => {
-    // console.log("👏👏👏👏👏👏");
-    // console.log(data);
-    // return data;
-    // const newAccountInfo = {
-    //   first_name: "",
-    //   last_name: "",
-    //   email: "",
-    //   password: "",
-    //   pincode: "",
-    //   image: null,
-    // };
     const newAccountInfo = data;
 
     axios.post(`${DB_URL}/account`, newAccountInfo).then((res) => {
       console.log(res);
       const responseCode = res.status;
-      // So here we can redirect to LOGIN PAGE if response code is 201;
       if (responseCode === 201) {
         alert("Account created. Welcome to taberu!");
-        navigate("/OwnerLogin");
+        navigate("/login");
       }
     });
   };

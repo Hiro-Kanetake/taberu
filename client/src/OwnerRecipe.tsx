@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import Header from "./components/Header";
 import "./App.css";
 import "./components/form.css";
 import dummy from "./assets/dummy.png";
 
-const DB_URL = "https://taberu-server.herokuapp.com";
-// const DB_URL = "http://localhost:8080";
+const DB_URL = process.env.REACT_APP_PUBLIC_URL || "http://localhost:8080";
 
 const OwnerRecipe: React.FC = () => {
   const [allRecipes, setAllRecipes] = useState<
@@ -39,15 +39,18 @@ const OwnerRecipe: React.FC = () => {
   }, [allRecipes]);
 
   return (
-    <div className="OwnerRecipe">
-      <main>
+    <div>
+      <header>
+        <Header />
+      </header>
+      <main className="OwnerRecipe">
         <img src={dummy} alt="" />
         <div className="formArea_owRecipe"></div>
         <div className="textArea_owRecipe">
           <h2>My Recipes</h2>
         </div>
         <div className="reviewArea_owRecipe">
-          {allRecipes.reverse().map((recipe) => {
+          {allRecipes.map((recipe) => {
             if (recipe.review > 0) {
               return (
                 <div

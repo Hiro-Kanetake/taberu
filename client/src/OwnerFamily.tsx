@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import Header from "./components/Header";
 import "./App.css";
 import { useForm } from "react-hook-form";
 
-const DB_URL = "https://taberu-server.herokuapp.com";
-// const DB_URL = "http://localhost:8080";
+const DB_URL = process.env.REACT_APP_PUBLIC_URL || "http://localhost:8080";
 
 interface addFamily {
   last_name: string;
@@ -79,8 +79,11 @@ const OwnerFamily: React.FC<Props> = ({ account_id }) => {
   }, [newFamily]);
 
   return (
-    <div className="OwnerFamily">
-      <main>
+    <div>
+      <header>
+        <Header />
+      </header>
+      <main className="OwnerFamily">
         <h2>Register</h2>
         <div className="formArea_owFamily">
           <form onSubmit={handleSubmit(onSubmit)}>
@@ -108,20 +111,20 @@ const OwnerFamily: React.FC<Props> = ({ account_id }) => {
             </div>
             <button>Add</button>
           </form>
-        </div>
+        </div> 
+        <section>
+          <h2>Family's Name</h2>
+          <div className="nameArea_owFamily">
+            {familyMember.map((family) => {
+              return (
+                <div className="nameAreaIn_owFamily" key={family.id}>
+                  <p>{family.first_name + " " + family.last_name}</p>
+                </div>
+              );
+            })}
+          </div>
+        </section>
       </main>
-      <section>
-        <h2>Family's Name</h2>
-        <div className="nameArea_owFamily">
-          {familyMember.map((family) => {
-            return (
-              <div className="nameAreaIn_owFamily" key={family.id}>
-                <p>{family.first_name + " " + family.last_name}</p>
-              </div>
-            );
-          })}
-        </div>
-      </section>
     </div>
   );
 };
