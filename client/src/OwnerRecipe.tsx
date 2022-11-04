@@ -44,7 +44,7 @@ const OwnerRecipe: React.FC = () => {
         <Header />
       </header>
       <main className="OwnerRecipe">
-        <img src={dummy} alt="" />
+        {/* <img src={dummy} alt="" /> */}
         <div className="formArea_owRecipe"></div>
         <div className="textArea_owRecipe">
           <h2>My Recipes</h2>
