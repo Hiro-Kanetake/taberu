@@ -1,9 +1,12 @@
 .App-header {
   background-color: #28B0D3;
+  position: fixed;
+  width: 100%;
 }
 
 .header {
   display: flex;
+  top: 0;
   align-items: center;
   padding: 0 20px;
 }
@@ -68,7 +71,7 @@
 }
 
 .nav_content {
-  width: 100%;
+  width: 200px;
   height: 100%;
   position: fixed;
   top: 0%;
@@ -97,7 +100,7 @@
 }
 
 #drawer_input:checked~.nav_content {
-  right: 0;
+  left: 0;
 }
 
 .date {
