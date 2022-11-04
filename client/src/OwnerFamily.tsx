@@ -82,7 +82,7 @@ const OwnerFamily: React.FC<accountId> = ({ account_id }) => {
             {familyMember.map((family) => {
               return (
                 <div className="nameAreaIn_owFamily" key={family.id}>
-                  <p>{family.first_name + " " + family.last_name}</p>
+                  <p><strong>{family.first_name}</strong>{" " + family.last_name}</p>
                 </div>
               );
             })}
@@ -98,7 +98,7 @@ const OwnerFamily: React.FC<accountId> = ({ account_id }) => {
               <input
                 type="text"
                 id="lastname"
-                placeholder="Hasegawa"
+                placeholder="last name"
                 {...register("last_name", { required: "this is required" })}
               />
             </div>
@@ -109,7 +109,7 @@ const OwnerFamily: React.FC<accountId> = ({ account_id }) => {
               <input
                 type="text"
                 id="firstname"
-                placeholder="Ayumi"
+                placeholder="first name"
                 {...register("first_name", { required: "this is required" })}
               />
             </div>

@@ -47,7 +47,7 @@ body {
 .OwnerMatchFamily { 
   padding: 100px 0;
   background:rgb(250, 247, 247);
-  height: 100vh;
+  min-height: 100vh;
 }
 
 h1.logo {
