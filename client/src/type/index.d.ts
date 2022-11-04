@@ -10,8 +10,20 @@ export type button = {
 /**
  * ALL RECIPE
  */
+export interface recipeInfo {
+    id: number;
+    name: string;
+    review: number | undefined;
+};
+
 export interface recipeName {
     name: string;
+};
+
+export interface reviewRequest {
+    account_id: number;
+    recipe_id: number | undefined;
+    review_request: boolean;
 };
 
 /**
