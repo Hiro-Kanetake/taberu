@@ -4,25 +4,17 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import logo from "./assets/logo.png";
+import { account, setAccountId } from "./type";
 
 const DB_URL = process.env.REACT_APP_PUBLIC_URL || "http://localhost:8080";
 
-interface test {
-  email: string;
-  password: string;
-}
-
-type Props = {
-  setAccountId: (id: number | undefined) => void;
-};
-
-const OwnerLogin: React.FC<Props> = ({ setAccountId }) => {
+const OwnerLogin: React.FC<setAccountId> = ({ setAccountId }) => {
   const navigate = useNavigate();
   const {
     register,
     handleSubmit,
     // formState: { errors },
-  } = useForm<test>({
+  } = useForm<account>({
     defaultValues: {
       email: "",
       password: "",

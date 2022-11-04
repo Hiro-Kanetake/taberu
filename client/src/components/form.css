@@ -6,6 +6,7 @@
 .formArea_owLogin,
 .formArea_owMatchFamily {
   width: 500px;
+  max-width: 90%;
 }
 
 .formArea_owRecipe {
@@ -95,9 +96,9 @@
   margin: 0 auto 20px auto;
 }
 
-.reviewAreaIn_chMain:nth-of-type(2n) {
+/* .reviewAreaIn_chMain:nth-of-type(2n) {
   margin-left: 20px;
-}
+} */
 
 .reviewAreaIn_chMain form label {
   display: inline-block;

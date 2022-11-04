@@ -11,7 +11,8 @@
 /* Owner Top */
 .image_top{
   width: 460px;
-  height: 460px;
+  max-width: 90%;
+  height: auto;
   margin: 0 auto;
   text-align: center;
   background: #fff;
@@ -20,6 +21,7 @@
 
 .image_top img{
   width: 360px;
+  max-width: 90%;
   padding: 10% 0;
 }
 
@@ -27,5 +29,6 @@
 .OwnerRecipe img {
   display: block;
   width: 500px;
+  max-width: 95%;
   margin: 0 auto 50px;
 }

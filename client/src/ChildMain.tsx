@@ -65,16 +65,13 @@ const ChildMain: React.FC = () => {
     <div className="TopChild">
       <main>
         <h2>Did you enjoy the meal?</h2>
-        <div className="mainVisual">
+        {/* <div className="mainVisual">
           <img src={dummy} alt="taberu" />
-        </div>
+        </div> */}
         <div className="reviewArea_chMain">
           {recipeToReview.map((recipe, i) => {
             return (
-              <div
-                className="reviewAreaIn_chMain"
-                key={recipe.recipe_id + "_" + i}
-              >
+              <div className="reviewAreaIn_chMain" key={recipe.recipe_id + "_" + i} >
                 <p>{recipe.name}</p>
                 <form>
                   <label>
@@ -111,9 +108,9 @@ const ChildMain: React.FC = () => {
           })}
         </div>
       </main>
-      <p className="gobackBtn_chMenu">
+      <div className="gobackBtn_chMenu">
         <a href="./OwnerMatchFamily">Go back to Owner page</a>
-      </p>
+      </div>
     </div>
   );
 };

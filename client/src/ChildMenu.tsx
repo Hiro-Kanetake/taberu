@@ -4,14 +4,11 @@ import axios from "axios";
 import "./App.css";
 import { useNavigate } from "react-router-dom";
 import logo from "./assets/logo.png";
+import { accountId } from "./type";
 
 const DB_URL = process.env.REACT_APP_PUBLIC_URL || "http://localhost:8080";
 
-type Props = {
-  account_id: number | undefined;
-};
-
-const ChildMenu: React.FC<Props> = ({ account_id }) => {
+const ChildMenu: React.FC<accountId> = ({ account_id }) => {
   const navigate = useNavigate();
   const [familyMember, setFamilyMember] = useState<
     {

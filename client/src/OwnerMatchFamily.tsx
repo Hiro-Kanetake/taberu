@@ -5,31 +5,24 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import ButtonChild from "./components/Button";
 import logo from "./assets/logo.png";
+import { accountId, pincode } from "./type";
 
 const DB_URL = process.env.REACT_APP_PUBLIC_URL || "http://localhost:8080";
 
-interface test {
-  pincode: number;
-}
-
-type Props = {
-  accountId: number | undefined;
-};
-
-const OwnerMatchFamily: React.FC<Props> = ({ accountId }) => {
+const OwnerMatchFamily: React.FC<accountId> = ({ account_id }) => {
   const navigate = useNavigate();
   const {
     register,
     handleSubmit,
     // formState: { errors },
-  } = useForm<test>({
+  } = useForm<pincode>({
     defaultValues: {
       pincode: undefined,
     },
   });
   const onSubmit = (data: any) => {
-    data.id = accountId
-      ? accountId
+    data.id = account_id
+      ? account_id
       : Number(localStorage.getItem("account_id"));
     data.pincode = Number(data.pincode);
     const accountInfo = {

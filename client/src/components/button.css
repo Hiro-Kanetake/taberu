@@ -22,9 +22,10 @@
 /* OwnerTop */
 .btuArea_top {
   display: flex;
-  justify-content: space-between;
-  margin: 80px auto 0;
+  justify-content: space-around;
+  margin: 50px auto 0;
   width: 444px;
+  max-width: 100%;
 }
 
 .btuArea_top .button,
@@ -40,6 +41,7 @@
 .btuArea_top .button:first-of-type,
 .OwnerMatchFamily .button {
   background-color: rgb(42, 176, 211);
+  max-width: 40%;
 }
 
 .OwnerMatchFamily .button {
@@ -50,6 +52,7 @@
 
 .btuArea_top .button:last-of-type {
   background-color: rgb(229, 103, 29);
+  max-width: 40%
 }
 
 .btuArea_top .button a{
@@ -60,6 +63,7 @@
 /* OwnerLoginMain */
 .navi_owLoginMain {
   width: 400px;
+  max-width: 90%;
   margin: 0 auto;
 }
 
@@ -132,6 +136,7 @@
   background-color: rgb(42, 176, 211);
   line-height: 40px;
   width: 200px;
+  max-width: 95%;
   height: 50px;
   font-weight: bold;
   margin: 8px auto 0;
@@ -156,6 +161,7 @@
     background-color: rgb(42, 176, 211);
     line-height: 50px;
     width: 200px;
+    max-width: 40%;
     height: 50px;
     font-weight: bold;
     margin: 20px auto 0;

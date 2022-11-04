@@ -1,67 +1,51 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import { useForm } from "react-hook-form";
 import Header from "./components/Header";
 import "./App.css";
 import "./components/form.css";
-import dummy from "./assets/dummy.png";
-
-const DB_URL = process.env.REACT_APP_PUBLIC_URL || "http://localhost:8080";
-
-interface addRecipe {
-  name: string;
-}
+import { recipeName, recipeInfo, reviewRequest } from "./type";
+import { getAllRecipes, addRecipe, requestReview } from "./api";
 
 const OwnerRecipe: React.FC = () => {
-  const [allRecipes, setAllRecipes] = useState<
-    { id: number; name: string; review: number | undefined }[]
-  >([]);
+  const [allRecipes, setAllRecipes] = useState<recipeInfo[] >([]);
   const [newRecipe, setNewRecipe] = useState<{ name: string }>();
   const [reviewRecipeId, setReviewRecipeId] = useState<number | undefined>();
 
   useEffect(() => {
-    axios
-      .get(`${DB_URL}/recipe`)
-      .then((res) => {
-        if (res.data.length > allRecipes.length) {
-          let lastIndex = allRecipes.length;
-          setAllRecipes((prevRecipe) => [...prevRecipe, res.data[lastIndex]]);
-        }
-      })
-      .catch((error) => {
-        console.log(error.response.data);
-      });
-  }, [allRecipes]);
+    const fetchData = async () => {
+      const data = await getAllRecipes();
+      setAllRecipes(data);
+    };
+    fetchData();
+  }, []);
 
   const {
     register,
     handleSubmit,
-    // formState: { errors },
-  } = useForm<addRecipe>({
+    formState: { errors },
+  } = useForm<recipeName>({
     defaultValues: {
       name: "",
     },
   });
 
   const newRecipeInfo = { name: "" };
-  const onSubmit = (data: any) => {
+  const onSubmit = (data: recipeName) => {
     newRecipeInfo.name = data.name;
     setNewRecipe(newRecipeInfo);
   };
 
   useEffect(() => {
-    if (newRecipe) axios.post(`${DB_URL}/recipe`, newRecipe);
+    if (newRecipe) addRecipe(newRecipe);
   }, [newRecipe]);
 
-  const recipeRequestReview = {
-    account_id: Number(localStorage.getItem("account_id")),
-    recipe_id: reviewRecipeId,
-    review_request: true,
-  };
   useEffect(() => {
-    if (reviewRecipeId) {
-      axios.post(`${DB_URL}/recipe/requestReview`, recipeRequestReview);
-    }
+    const recipeRequestReview: reviewRequest = {
+      account_id: Number(localStorage.getItem("account_id")),
+      recipe_id: reviewRecipeId,
+      review_request: true,
+    };
+    if (reviewRecipeId) requestReview(recipeRequestReview);
   }, [reviewRecipeId]);
 
   return (
@@ -70,7 +54,6 @@ const OwnerRecipe: React.FC = () => {
         <Header />
       </header>
       <main className="OwnerRecipe">
-        <img src={dummy} alt="" />
         <div className="formArea_owRecipe">
           <form onSubmit={handleSubmit(onSubmit)}>
             <label htmlFor="recipename">

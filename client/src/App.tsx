@@ -34,7 +34,7 @@ function App() {
           <Route path="/user/family" element={<OwnerFamily account_id={accountId} /> } />
           <Route path="/user/recipe" element={<OwnerRecipe /> } />
           <Route path="/AllRecipe" element={<AllRecipe /> } />
-          <Route path="/OwnerMatchFamily" element={<OwnerMatchFamily accountId={accountId} />} />
+          <Route path="/OwnerMatchFamily" element={<OwnerMatchFamily account_id={accountId} />} />
 
           {/* FAMILY PAGE COMPONENTS*/}
           <Route path="/ChildMenu" element={<ChildMenu account_id={accountId} />} />
