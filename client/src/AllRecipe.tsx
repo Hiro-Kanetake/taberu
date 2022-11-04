@@ -4,13 +4,10 @@ import { useForm } from "react-hook-form";
 import Header from "./components/Header";
 import "./App.css";
 import "./components/form.css";
+import { recipeName } from "./type";
 import dummy from "./assets/dummy.png";
 
 const DB_URL = process.env.REACT_APP_PUBLIC_URL || "http://localhost:8080";
-
-interface addRecipe {
-  name: string;
-}
 
 const OwnerRecipe: React.FC = () => {
   const [allRecipes, setAllRecipes] = useState<
@@ -37,7 +34,7 @@ const OwnerRecipe: React.FC = () => {
     register,
     handleSubmit,
     // formState: { errors },
-  } = useForm<addRecipe>({
+  } = useForm<recipeName>({
     defaultValues: {
       name: "",
     },
@@ -50,7 +47,7 @@ const OwnerRecipe: React.FC = () => {
   };
 
   useEffect(() => {
-    if (newRecipe) axios.post(`${DB_URL}/recipe`, newRecipe);
+    if (newRecipe) axios.post(`${DB_URL}/recipe`, newRecipe)
   }, [newRecipe]);
 
   const recipeRequestReview = {
@@ -70,7 +67,7 @@ const OwnerRecipe: React.FC = () => {
         <Header />
       </header>
       <main className="OwnerRecipe">
-        <img src={dummy} alt="" />
+        {/* <img src={dummy} alt="" /> */}
         <div className="formArea_owRecipe">
           <form onSubmit={handleSubmit(onSubmit)}>
             <label htmlFor="recipename">

@@ -3,19 +3,11 @@ import axios from "axios";
 import Header from "./components/Header";
 import "./App.css";
 import { useForm } from "react-hook-form";
+import { accountId, familyName } from "./type";
 
 const DB_URL = process.env.REACT_APP_PUBLIC_URL || "http://localhost:8080";
 
-interface addFamily {
-  last_name: string;
-  first_name: string;
-}
-
-type Props = {
-  account_id: number | undefined;
-};
-
-const OwnerFamily: React.FC<Props> = ({ account_id }) => {
+const OwnerFamily: React.FC<accountId> = ({ account_id }) => {
   const [familyMember, setFamilyMember] = useState<
     {
       id: number;
@@ -54,7 +46,7 @@ const OwnerFamily: React.FC<Props> = ({ account_id }) => {
       });
   });
 
-  const { register, handleSubmit } = useForm<addFamily>({
+  const { register, handleSubmit } = useForm<familyName>({
     defaultValues: {
       last_name: "",
       first_name: "",
@@ -84,7 +76,19 @@ const OwnerFamily: React.FC<Props> = ({ account_id }) => {
         <Header />
       </header>
       <main className="OwnerFamily">
-        <h2>Register</h2>
+        <section>
+          <h2>My Family</h2>
+          <div className="nameArea_owFamily">
+            {familyMember.map((family) => {
+              return (
+                <div className="nameAreaIn_owFamily" key={family.id}>
+                  <p>{family.first_name + " " + family.last_name}</p>
+                </div>
+              );
+            })}
+          </div>
+        </section>
+        <h2>Add Family</h2>
         <div className="formArea_owFamily">
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="inputArea_owFamily">
@@ -112,18 +116,6 @@ const OwnerFamily: React.FC<Props> = ({ account_id }) => {
             <button>Add</button>
           </form>
         </div> 
-        <section>
-          <h2>Family's Name</h2>
-          <div className="nameArea_owFamily">
-            {familyMember.map((family) => {
-              return (
-                <div className="nameAreaIn_owFamily" key={family.id}>
-                  <p>{family.first_name + " " + family.last_name}</p>
-                </div>
-              );
-            })}
-          </div>
-        </section>
       </main>
     </div>
   );

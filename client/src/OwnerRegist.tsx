@@ -4,16 +4,9 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import logo from "./assets/logo.png";
+import { newRegister } from "./type";
 
 const DB_URL = process.env.REACT_APP_PUBLIC_URL || "http://localhost:8080";
-
-interface test {
-  last_name: string;
-  first_name: string;
-  email: string;
-  password: string;
-  pincode: number;
-}
 
 const OwnerRegist: React.FC = () => {
   const navigate = useNavigate();
@@ -21,7 +14,7 @@ const OwnerRegist: React.FC = () => {
     register,
     handleSubmit,
     // formState: { errors },
-  } = useForm<test>({
+  } = useForm<newRegister>({
     defaultValues: {
       last_name: "",
       first_name: "",

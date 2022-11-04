@@ -1,14 +1,10 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Link } from "react-router-dom";
 import './button.css';
+import { button } from "../type"
 
-type Props = {
-  text: string;
-  link: string;
-}
-
-const ButtonCommon: React.FC<Props> = ({ link, text }) => {
+const Button: React.FC<button> = ({ link, text }) => {
   return <p className="button"><Link to={ link }>{ text }</Link></p>
 }
   
-export default ButtonCommon;
+export default Button;
